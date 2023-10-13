@@ -13,28 +13,89 @@
     max-width: 100vw;
     display: grid;
     grid-template-columns: 8fr 1fr;
-    grid-template-rows: 10rem 5rem;
+    grid-template-rows: 10rem 10rem;
 }
+
+/* Header kısımı */
 
 header {
-    background-color: grey;
     grid-area: 1/1/2/2;
+    display: flex;
+    align-items: center;
+    border-bottom: 1Px solid GREY;
 }
+
+header>h1 {
+    width: 50%;
+    padding-left: 10px;
+    font-size: 4rem;
+}
+
+header>p {
+    font-size: 2.5rem;
+}
+
+/* Side kısımı */
 
 aside {
-    background-color: green;
-    grid-area: 1/2/4/4;
-
+    grid-area: 1/2/2/4;
+    
 }
 
+.user {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-bottom: 2px solid grey;
+}
+
+.user-settings {
+    font-size: 3rem;
+}
+
+.user-image {
+    background-image: url(assets/kullan.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 0 .5rem auto;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+/* Search kısımı */
+
 .search {
-    grid-area: 2/1/3/2;
+    grid-area: 2/1/3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search>input {
+    border-radius: 5rem;
+    padding: 2px 5px;
+    outline: none;
+    width: 70rem;
+}
+
+.add {
+    color: #03c988;
+    font-size: 4rem;
+    margin-left: 5rem;
 }
 
 /* Main kısımı */
 
 main {
-    padding: 1rem;
+    grid-area: 3/1/4/5;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -79,7 +140,7 @@ main {
 .is-read {
     font-size: 2.5rem;
     color: green;
-}   
+}
 
 .page-author {
     display: flex;
@@ -93,7 +154,29 @@ main {
     text-decoration: underline;
 }
 
-.settings {
+.card-settings {
     font-size: 2.5rem;
     color: brown;
 }
+
+/* Scroll Bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f100;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
