@@ -39,7 +39,7 @@ header>p {
 
 aside {
     grid-area: 1/2/2/4;
-    
+
 }
 
 .user {
@@ -56,11 +56,11 @@ aside {
     transition: all .3s ease-in-out;
 }
 
-.user-settings:hover{
+.user-settings:hover {
     filter: drop-shadow(0 0 1px black);
 }
 
-.user-settings:active{
+.user-settings:active {
     scale: 0.5;
 }
 
@@ -102,17 +102,17 @@ aside {
     transition: .3s all ease-in-out;
 }
 
-.add:hover{
+.add:hover {
     animation: shadows 2s infinite ease-in;
 }
 
-@keyframes shadows{
-    50%{
+@keyframes shadows {
+    50% {
         filter: drop-shadow(0 0 1px green);
     }
 }
 
-.add:active{
+.add:active {
     scale: 0.5;
 }
 
@@ -188,38 +188,62 @@ main {
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: #f1f1f100;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #888888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
+}
 
 /* Modal */
 
 ::backdrop {
-   background-color: black;
-   opacity: 0.75;
+    background-color: black;
+    opacity: 0.75;
 }
-  
 
-  #add-book{
+/* Add Book Modal*/
+#add-book {
     margin: auto;
     border: none;
-  }
+    border-radius: 2rem;
+}
 
-  #user-settings{
+.add-book-form {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.author-div, .book-div, .pages-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-div {
+    border: none;
+}
+
+/* User Setting Modal*/
+
+#user-settings {
     margin-left: auto;
     min-height: 100vh;
     border: none;
-  }
+}
