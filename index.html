@@ -307,22 +307,22 @@
 
                     <div class="book-div">
                         <label for="book-name">Book Name:</label>
-                        <input type="text" name="book-name">
+                        <input type="text" name="book-name" id="book-name">
                     </div>
 
                     <div class="author-div">
                         <label for="author-name">Author Name:</label>
-                        <input type="text" name="author-name">
+                        <input type="text" name="author-name" id="author-name">
                     </div>
 
                     <div class="pages-div">
                         <label for="pages">Pages:</label>
-                        <input type="number" name="pages">
+                        <input type="number" name="pages" id="pages">
                     </div>
 
                     <div class="read-div">
                         <label for="is-read">Read :</label>
-                        <input type="checkbox" name="is-read">
+                        <input type="checkbox" name="is-read" id="is-read">
                     </div>
 
                 </div>
@@ -331,16 +331,18 @@
 
                     <fieldset class="summary-div">
                         <legend>Summary:</legend>
-                        <textarea name="summary" id="" cols="30" rows="10"></textarea>
+                        <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
                     </fieldset>
 
                     <div class="close-div">
-                        <button autofocus id="close-book">Close</button>
+                        <button autofocus type="submit" id="close-book">Close</button>
                     </div>
 
                 </div>
             </form>
         </dialog>
+
+        <!-- User Settings -->
 
         <dialog id="user-settings">
             <button autofocus id="close-user-settings">Close</button>
