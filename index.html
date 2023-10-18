@@ -101,6 +101,50 @@
             </form>
         </dialog>
 
+        <!-- Book Settings -->
+
+        <dialog id="book-settings">
+
+            <form action="" class="add-book-form">
+                <div class="left">
+
+                    <div class="book-div">
+                        <label for="book-name">Book Name:</label>
+                        <input type="text" name="book-name" id="settings-name">
+                    </div>
+
+                    <div class="author-div">
+                        <label for="author-name">Author Name:</label>
+                        <input type="text" name="author-name" id="settings-author">
+                    </div>
+
+                    <div class="pages-div">
+                        <label for="pages">Pages:</label>
+                        <input type="number" name="pages" id="settings-pages">
+                    </div>
+
+                    <div class="read-div">
+                        <label for="is-read">Read :</label>
+                        <input type="checkbox" name="is-read" id="settings-is-read">
+                    </div>
+
+                </div>
+
+                <div class="right">
+
+                    <fieldset class="summary-div">
+                        <legend>Summary:</legend>
+                        <textarea name="summary" id="settings-summary" cols="30" rows="10"></textarea>
+                    </fieldset>
+
+                    <div class="close-div">
+                        <button autofocus type="submit" id="close-book-settings">Close</button>
+                    </div>
+
+                </div>
+            </form>
+        </dialog>
+
         <!-- User Settings -->
 
         <dialog id="user-settings">
