@@ -61,22 +61,22 @@
         <!-- Modals -->
 
         <dialog id="add-book">
-            <form action="" class="add-book-form">
+            <form class="add-book-form">
                 <div class="left">
 
                     <div class="book-div">
                         <label for="book-name">Book Name:</label>
-                        <input type="text" name="book-name" id="book-name">
+                        <input type="text" name="book-name" id="book-name" required="">
                     </div>
 
                     <div class="author-div">
                         <label for="author-name">Author Name:</label>
-                        <input type="text" name="author-name" id="author-name">
+                        <input type="text" name="author-name" id="author-name" required>
                     </div>
 
                     <div class="pages-div">
                         <label for="pages">Pages:</label>
-                        <input type="number" name="pages" id="pages">
+                        <input type="number" name="pages" id="pages" required>
                     </div>
 
                     <div class="read-div">
@@ -90,7 +90,7 @@
 
                     <fieldset class="summary-div">
                         <legend>Summary:</legend>
-                        <textarea name="summary" id="summary" cols="30" rows="10"></textarea>
+                        <textarea name="summary" id="summary" cols="30" rows="10" required></textarea>
                     </fieldset>
 
                     <div class="close-div">
@@ -110,7 +110,7 @@
 
                     <div class="book-div">
                         <label for="book-name">Book Name:</label>
-                        <input type="text" name="book-name" id="settings-name">
+                        <input type="text" name="book-name" id="settings-name" readonly>
                     </div>
 
                     <div class="author-div">

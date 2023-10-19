@@ -22,10 +22,10 @@ let gelen = localStorage.getItem("bu")
 let objGelen = JSON.parse(gelen)
 
 let library = {
-  "Lord Of The Rings": { name: 'Lord Of The Rings', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'NANANANANANANANANANANANANANANANAANANANANANAANANANANAN' },
-  "falan filan": { name: 'falan filan', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'deneme' },
-  "ölümlü dünya": { name: 'ölümlü dünya', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'kobik' },
-  "cinayet süsü": { name: 'cinayet süsü', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'en kobiğii' },
+  "Lord Of The Rings": {
+    name: 'Lord Of The Rings', author: 'J.R.R Tolkien', pages: '123', read: false, summary: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, quam! Lorem ipsum dolor sit amet
+  consectetur adipisicing elit. Odio voluptates distinctio delectus nam sint ratione quam nihil eum
+  facere ea hic dicta vero, cupiditate perspiciatis tempore fugit doloribus culpa maiores!` }
 }
 
 if (objGelen != null) {
@@ -69,11 +69,20 @@ function makeCard(name, author, pages, read, summary) {
   pageP.textContent = `${pages}`
   icon2.innerHTML = `<iconify-icon icon="ant-design:setting-filled" class="card-settings"></iconify-icon>`
 
+  if (read == true) {
+    icon1.style.color = "green"
+  } else {
+    icon1.style.color = "red"
+  }
+
   icon2.addEventListener("click", () => {
     settingsName.value = `${name}`
     settingsAuthor.value = `${author}`
     settingsPages.value = `${pages}`
     settingsSummary.value = `${summary}`
+    if (read == true) {
+      settingsIsRead.checked = true
+    }
     bookSettings.showModal();
 
   })
@@ -121,8 +130,7 @@ showBook.addEventListener("click", () => {
   addBook.showModal();
 });
 
-closeBook.addEventListener("click", (e) => {
-  e.preventDefault()
+closeBook.addEventListener("click", () => {
   let as = true
 
   for (key in library) {
@@ -135,28 +143,34 @@ closeBook.addEventListener("click", (e) => {
   let newBook = new book(bookName.value, authorName.value, pages.value, isRead.checked, summary.value)
 
   // Same book control area
-  if (as == true) {
+  if (as == true && bookName.value != "" && authorName.value != "" && pages.value != "" && summary.value != "") {
     library[`${bookName.value}`] = newBook
     makeCard(library[`${bookName.value}`].name, library[`${bookName.value}`].author, library[`${bookName.value}`].pages, library[`${bookName.value}`].read, library[`${bookName.value}`].summary)
+    console.log(bookName.value)
   } else {
     alert("NAPTIN YİĞEN SEN YAW AYNI ADLI BİR KİTAP DA VAR YİĞEN")
   }
 
-  localStorage.setItem ("bu", JSON.stringify(library))
+  localStorage.setItem("bu", JSON.stringify(library))
 
-  addBook.close();
 });
 
 // Setting Book Modal
 
 closeBookSettings.addEventListener("click", (e) => {
-  e.preventDefault()
-  library[`${settingsName.value}`].name = `${settingsAuthor.value}`
   library[`${settingsName.value}`].author = `${settingsAuthor.value}`
   library[`${settingsName.value}`].pages = `${settingsPages.value}`
   library[`${settingsName.value}`].summary = `${settingsSummary.value}`
-  console.log(library)
-  localStorage.setItem ("bu", JSON.stringify(library))
+
+  if (settingsIsRead.checked == true) {
+    library[`${settingsName.value}`].read = true
+  } else {
+    library[`${settingsName.value}`].read = false
+  }
+
+
+
+  localStorage.setItem("bu", JSON.stringify(library))
 })
 
 

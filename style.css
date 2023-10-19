@@ -167,7 +167,6 @@ main {
 
 .is-read {
     font-size: 2.5rem;
-    color: green;
 }
 
 .page-author {
@@ -251,3 +250,4 @@ main {
     min-height: 100vh;
     border: none;
 }
+
