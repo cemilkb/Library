@@ -18,12 +18,20 @@ let main = document.querySelector("main")
 
 // Create
 
-const library = {
- "Lord Of The Rings": { name: 'Lord Of The Rings', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'NANANANANANANANANANANANANANANANAANANANANANAANANANANAN' },
+let gelen = localStorage.getItem("bu")
+let objGelen = JSON.parse(gelen)
+
+let library = {
+  "Lord Of The Rings": { name: 'Lord Of The Rings', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'NANANANANANANANANANANANANANANANAANANANANANAANANANANAN' },
   "falan filan": { name: 'falan filan', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'deneme' },
   "ölümlü dünya": { name: 'ölümlü dünya', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'kobik' },
   "cinayet süsü": { name: 'cinayet süsü', author: 'J.R.R Tolkien', pages: '123', read: false, summary: 'en kobiğii' },
 }
+
+if (objGelen != null) {
+  library = objGelen
+}
+
 
 // Function
 
@@ -66,8 +74,6 @@ function makeCard(name, author, pages, read, summary) {
     settingsAuthor.value = `${author}`
     settingsPages.value = `${pages}`
     settingsSummary.value = `${summary}`
-
-
     bookSettings.showModal();
 
   })
@@ -136,6 +142,8 @@ closeBook.addEventListener("click", (e) => {
     alert("NAPTIN YİĞEN SEN YAW AYNI ADLI BİR KİTAP DA VAR YİĞEN")
   }
 
+  localStorage.setItem ("bu", JSON.stringify(library))
+
   addBook.close();
 });
 
@@ -143,10 +151,14 @@ closeBook.addEventListener("click", (e) => {
 
 closeBookSettings.addEventListener("click", (e) => {
   e.preventDefault()
+  library[`${settingsName.value}`].name = `${settingsAuthor.value}`
   library[`${settingsName.value}`].author = `${settingsAuthor.value}`
   library[`${settingsName.value}`].pages = `${settingsPages.value}`
   library[`${settingsName.value}`].summary = `${settingsSummary.value}`
+  console.log(library)
+  localStorage.setItem ("bu", JSON.stringify(library))
 })
+
 
 
 for (key in library) {
