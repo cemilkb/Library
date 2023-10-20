@@ -59,20 +59,26 @@ function makeCard(name, author, pages, read, summary) {
   let icon2 = document.createElement("div")
 
   div.classList.add("card")
-  img.setAttribute("src", "assets/kullan.png")
+  img.setAttribute("src", "assets/book.jpg")
   h1.textContent = `${name}:`
   p.textContent = `${summary}`
   cardBottom.classList.add("card-bottom")
   icon1.innerHTML = `<iconify-icon icon="tabler:eye-filled" class="is-read"></iconify-icon>`
   pageAuthor.classList.add("page-author")
   authorP.textContent = `${author}`
-  pageP.textContent = `${pages}`
+  pageP.textContent = `${pages}pgs`
   icon2.innerHTML = `<iconify-icon icon="ant-design:setting-filled" class="card-settings"></iconify-icon>`
 
   if (read == true) {
-    icon1.style.color = "green"
+    icon1.style.color = "#7AA874"
+    div.style.border = `1px solid #7AA874`
+    div.style.boxShadow = ` 0 0 10px #7AA874`
+    div.style.backgroundColor = ` hsla(113, 23%, 56%, 0.2)`
   } else {
-    icon1.style.color = "red"
+    icon1.style.color = "#C21010"
+    div.style.border = `1px solid #C21010`
+    div.style.boxShadow = ` 0 0 10px #C21010`
+    div.style.backgroundColor = `hsla(0, 85%, 41%, 0.2)`
   }
 
   icon2.addEventListener("click", () => {
@@ -152,12 +158,12 @@ closeBook.addEventListener("click", () => {
   }
 
   localStorage.setItem("bu", JSON.stringify(library))
-
 });
 
 // Setting Book Modal
 
 closeBookSettings.addEventListener("click", (e) => {
+  e.preventDefault()
   library[`${settingsName.value}`].author = `${settingsAuthor.value}`
   library[`${settingsName.value}`].pages = `${settingsPages.value}`
   library[`${settingsName.value}`].summary = `${settingsSummary.value}`
@@ -169,8 +175,10 @@ closeBookSettings.addEventListener("click", (e) => {
   }
 
 
-
   localStorage.setItem("bu", JSON.stringify(library))
+
+  bookSettings.close()
+  window.location.reload()
 })
 
 
