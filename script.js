@@ -67,7 +67,7 @@ function makeCard(name, author, pages, read, summary) {
   pageAuthor.classList.add("page-author")
   authorP.textContent = `${author}`
   pageP.textContent = `${pages}pgs`
-  icon2.innerHTML = `<iconify-icon icon="ant-design:setting-filled" class="card-settings"></iconify-icon>`
+  icon2.innerHTML = `<iconify-icon icon="iconamoon:settings-thin" class="card-settings"></iconify-icon>`
 
   if (read == true) {
     icon1.style.color = "#7AA874"
@@ -136,7 +136,8 @@ showBook.addEventListener("click", () => {
   addBook.showModal();
 });
 
-closeBook.addEventListener("click", () => {
+closeBook.addEventListener("click", (e) => {
+  e.preventDefault()
   let as = true
 
   for (key in library) {
@@ -155,6 +156,7 @@ closeBook.addEventListener("click", () => {
     console.log(bookName.value)
   } else {
     alert("NAPTIN YİĞEN SEN YAW AYNI ADLI BİR KİTAP DA VAR YİĞEN")
+    e.preventDefault()
   }
 
   localStorage.setItem("bu", JSON.stringify(library))
@@ -163,7 +165,6 @@ closeBook.addEventListener("click", () => {
 // Setting Book Modal
 
 closeBookSettings.addEventListener("click", (e) => {
-  e.preventDefault()
   library[`${settingsName.value}`].author = `${settingsAuthor.value}`
   library[`${settingsName.value}`].pages = `${settingsPages.value}`
   library[`${settingsName.value}`].summary = `${settingsSummary.value}`
@@ -177,13 +178,31 @@ closeBookSettings.addEventListener("click", (e) => {
 
   localStorage.setItem("bu", JSON.stringify(library))
 
-  bookSettings.close()
   window.location.reload()
 })
 
+
+// Modal Close
+
+let bmc = document.getElementById("close-book-modal")
+let bsmc = document.getElementById("close-book-settings-modal")
+const deleteButton = document.getElementById("book-delete");
+
+bmc.addEventListener("click", () => {
+  addBook.close();
+})
+bsmc.addEventListener("click", () => {
+  bookSettings.close()
+})
+deleteButton.addEventListener("click", () => {
+  delete library[`${settingsName.value}`]
+
+
+  localStorage.setItem("bu", JSON.stringify(library))
+  window.location.reload()
+})
 
 
 for (key in library) {
   makeCard(library[`${key}`].name, library[`${key}`].author, library[`${key}`].pages, library[`${key}`].read, library[`${key}`].summary)
 }
-

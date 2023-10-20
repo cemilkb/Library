@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/book.jpg">
 </head>
 
 <body>
@@ -40,13 +44,13 @@
         <!-- Main -->
         <main>
 
-          
+
 
         </main>
 
         <!-- Modals -->
 
-        <dialog id="add-book">
+        <dialog id="add-book" class="input-dialog">
             <form class="add-book-form">
                 <div class="left">
 
@@ -80,7 +84,8 @@
                     </fieldset>
 
                     <div class="close-div">
-                        <button autofocus type="submit" id="close-book">Add</button>
+                        <button autofocus type="submit" id="close-book" class="modal-add">Add</button>
+                        <button type="button" id="close-book-modal" class="modal-close">Close</button>
                     </div>
 
                 </div>
@@ -89,7 +94,7 @@
 
         <!-- Book Settings -->
 
-        <dialog id="book-settings">
+        <dialog id="book-settings" class="input-dialog">
 
             <form action="" class="add-book-form">
                 <div class="left">
@@ -124,7 +129,9 @@
                     </fieldset>
 
                     <div class="close-div">
-                        <button autofocus type="submit" id="close-book-settings">Close</button>
+                        <button autofocus type="submit" id="close-book-settings" class="modal-add">Change</button>
+                        <button type="button" id="close-book-settings-modal" class="modal-close">Close</button>
+                        <button type="button" id="book-delete" class="modal-delete">Delete</button>
                     </div>
 
                 </div>
