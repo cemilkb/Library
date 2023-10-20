@@ -10,7 +10,7 @@ body {
     background-image: linear-gradient(to right top, #eab8bb, #eebebd, #f3c4c0, #f6cac3, #fad0c6, #fad0c6, #fad0c6, #fad0c6, #f6cac3, #f3c4c0, #eebebd, #eab8bb);
     background-size: cover;
     min-height: 100vh;
-    width: 100vw;
+    max-width: 100vw;
     background-repeat: no-repeat;
 }
 
