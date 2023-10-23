@@ -137,14 +137,13 @@ showBook.addEventListener("click", () => {
 });
 
 closeBook.addEventListener("click", (e) => {
-  e.preventDefault()
   let as = true
 
   for (key in library) {
     if (key == bookName.value) {
       as = false
     }
-  }
+  } 
 
   // Make book and add library
   let newBook = new book(bookName.value, authorName.value, pages.value, isRead.checked, summary.value)
@@ -155,8 +154,7 @@ closeBook.addEventListener("click", (e) => {
     makeCard(library[`${bookName.value}`].name, library[`${bookName.value}`].author, library[`${bookName.value}`].pages, library[`${bookName.value}`].read, library[`${bookName.value}`].summary)
     console.log(bookName.value)
   } else {
-    alert("NAPTIN YİĞEN SEN YAW AYNI ADLI BİR KİTAP DA VAR YİĞEN")
-    e.preventDefault()
+    alert("All fields must be filled except the read section.")
   }
 
   localStorage.setItem("bu", JSON.stringify(library))
